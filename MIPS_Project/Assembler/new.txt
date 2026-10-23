@@ -1,0 +1,33 @@
+# Initialize n = 5 (factorial of 5)
+addi $t2, $zero, 5         # Set n = 5
+
+# Start factorial calculation
+factorial:
+    # Save current n (in $t2) to stack
+    addi $sp, $sp, -4       # Move stack pointer down to create space
+    sw $t2, 0($sp)          # Store n (in $t2) onto the stack
+
+    # Base case: If n == 0, return 1
+    beq $t2, $zero, factorial_base_case
+
+    # Recursive case: n > 0, decrement n and call factorial(n-1)
+    addi $t2, $t2, -1       # Decrement n by 1
+    j factorial              # Jump to factorial (recursive call)
+
+factorial_base_case:
+    # Base case: If n == 0, set $t0 = 1
+    addi $t0, $zero, 1      # $t0 = 1 (since 0! = 1)
+
+factorial_return:
+    # Restore n from stack (before returning from recursion)
+    lw $t2, 0($sp)          # Load n from stack into $t2
+    addi $sp, $sp, 4        # Restore stack pointer by moving it up
+
+    # If n > 0, multiply the result in $t0 by n (stored in $t2)
+    beq $t2, $zero, factorial_done   # If n == 0, skip multiplication
+    mul $t0, $t0, $t2       # Multiply current result in $t0 by n (in $t2)
+
+factorial_done:
+    # Now $t0 contains the factorial result (factorial of 5 is 120)
+    # You can use $t0 as the result.
+    nop                      # No operation (just to end program cleanly)

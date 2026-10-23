@@ -8,7 +8,7 @@ Coursework for **CSE 210: Computer Architecture Sessional**, Department of CSE, 
 
 | Folder | What's inside |
 |---|---|
-| `ALU/` | Assignment 1 — Arithmetic Logic Unit circuit (adder, subtractor, AND/OR/NOR, SLL/SRL) |
+| `ALU/` | Assignment 1 — ALU (`ALU.circ`, submitted as Group 4) built from 7400-series ICs, with the assignment spec; `MAIN_CIRCUIT.circ` is an extended ALU prototype |
 | `MIPS_Project/Simulation/` | Final project — single-cycle MIPS datapath (`mips_datapath.circ`): register file, instruction & data memory, ALU, control unit, plus the provided 8-bit ALU module |
 | `MIPS_Project/Assembler/` | C++ assembler that turns MIPS assembly (`in.txt`) into machine code for the instruction ROM; `control.txt` holds the control-unit ROM image |
 | `MIPS_Project/Report/` | Project report |
